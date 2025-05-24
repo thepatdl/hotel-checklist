@@ -1,72 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hotel Checklist</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 2rem;
-      background-color: #f0f4f8;
-      color: #333;
-    }
-    h1 {
-      color: #0a66c2;
-    }
-    label {
-      display: block;
-      margin: 0.5rem 0;
-    }
-  </style>
-</head>
 <body>
   <h1>Hotel Checklist 🏨</h1>
+  <div id="counter" style="margin-bottom: 1rem; font-weight: bold;"></div>
   <div id="hotel-list"></div>
+<script>
+  const hotels = [
+    { name: "VIE Hotel Bangkok - MGallery", visited: false },
+    { name: "SO/ Bangkok", visited: true },
+    { name: "Banyan Tree Bangkok", visited: false },
+    { name: "Cassia Rama 9 Bangkok", visited: false },
+    { name: "Sofitel Bangkok Sukhumvit", visited: false },
+    { name: "Pullman Bangkok King Power", visited: false },
+    { name: "Pullman Bangkok Hotel G", visited: true },
+    { name: "Mövenpick BDMS Wellness Resort Bangkok", visited: true },
+    { name: "Mövenpick Hotel Sukhumvit 15 Bangkok", visited: true },
+    { name: "Swissôtel Bangkok Ratchada", visited: false },
+    { name: "Grand Mercure Bangkok Asoke Residence", visited: false },
+    { name: "Grand Mercure Bangkok Atrium", visited: true },
+    { name: "Novotel Bangkok on Siam Square", visited: false },
+    { name: "Novotel Bangkok Platinum Pratunam", visited: false },
+    { name: "Novotel Bangkok Sukhumvit 20", visited: false },
+    { name: "Novotel Bangkok Bangna", visited: false },
+    { name: "Novotel Bangkok Impact", visited: false },
+    { name: "Novotel Living Bangkok Sukhumvit Legacy", visited: true },
+    { name: "Novotel Bangkok Sukhumvit 4", visited: false },
+    { name: "Novotel Bangkok Future Park Rangsit", visited: false },
+    { name: "Mercure Bangkok Siam", visited: false },
+    { name: "Mercure Bangkok Makkasan", visited: false },
+    { name: "Mercure Bangkok Sukhumvit 11", visited: false },
+    { name: "Mercure Bangkok Sukhumvit 24", visited: false },
+    { name: "Mercure Bangkok Surawong", visited: false },
+    { name: "ibis Bangkok Siam", visited: false },
+    { name: "ibis Bangkok Sukhumvit 4", visited: false },
+    { name: "ibis Bangkok Sukhumvit 24", visited: false },
+    { name: "ibis Bangkok Sathorn", visited: false },
+    { name: "ibis Bangkok Riverside", visited: true },
+    { name: "ibis Styles Bangkok Ratchada", visited: false },
+    { name: "ibis Styles Bangkok Silom", visited: false },
+    { name: "ibis Styles Bangkok Sukhumvit 4", visited: false },
+    { name: "ibis Styles Bangkok Sukhumvit Phra Khanong", visited: false },
+    { name: "ibis Styles Bangkok Sukhumvit 50", visited: false },
+    { name: "TRIBE Living Bangkok Sukhumvit 39", visited: true },
+    { name: "Homm Sukhumvit34 Bangkok", visited: true },
+  ];
 
-  <script>
-    const hotels = [
-      { name: "VIE Hotel Bangkok - MGallery", visited: false },
-      { name: "SO/ Bangkok", visited: true },
-      { name: "Banyan Tree Bangkok", visited: false },
-      { name: "Cassia Rama 9 Bangkok", visited: false },
-      { name: "Sofitel Bangkok Sukhumvit", visited: false },
-      { name: "Pullman Bangkok King Power", visited: false },
-      { name: "Pullman Bangkok Hotel G", visited: true },
-      { name: "Mövenpick BDMS Wellness Resort Bangkok", visited: true },
-      { name: "Mövenpick Hotel Sukhumvit 15 Bangkok", visited: true },
-      { name: "Swissôtel Bangkok Ratchada", visited: false },
-      { name: "Grand Mercure Bangkok Asoke Residence", visited: false },
-      { name: "Grand Mercure Bangkok Atrium", visited: true },
-      { name: "Novotel Bangkok on Siam Square", visited: false },
-      { name: "Novotel Bangkok Platinum Pratunam", visited: false },
-      { name: "Novotel Bangkok Sukhumvit 20", visited: false },
-      { name: "Novotel Bangkok Bangna", visited: false },
-      { name: "Novotel Bangkok Impact", visited: false },
-      { name: "Novotel Living Bangkok Sukhumvit Legacy", visited: true },
-      { name: "Novotel Bangkok Sukhumvit 4", visited: false },
-      { name: "Novotel Bangkok Future Park Rangsit", visited: false },
-      { name: "Mercure Bangkok Siam", visited: false },
-      { name: "Mercure Bangkok Makkasan", visited: false },
-      { name: "Mercure Bangkok Sukhumvit 11", visited: false },
-      { name: "Mercure Bangkok Sukhumvit 24", visited: false },
-      { name: "Mercure Bangkok Surawong", visited: false },
-      { name: "ibis Bangkok Siam", visited: false },
-      { name: "ibis Bangkok Sukhumvit 4", visited: false },
-      { name: "ibis Bangkok Sukhumvit 24", visited: false },
-      { name: "ibis Bangkok Sathorn", visited: false },
-      { name: "ibis Bangkok Riverside", visited: true },
-      { name: "ibis Styles Bangkok Ratchada", visited: false },
-      { name: "ibis Styles Bangkok Silom", visited: false },
-      { name: "ibis Styles Bangkok Sukhumvit 4", visited: false },
-      { name: "ibis Styles Bangkok Sukhumvit Phra Khanong", visited: false },
-      { name: "ibis Styles Bangkok Sukhumvit 50", visited: false },
-      { name: "TRIBE Living Bangkok Sukhumvit 39", visited: true },
-      { name: "Homm Sukhumvit34 Bangkok", visited: true },
-    ];
+  const list = document.getElementById("hotel-list");
+  const counter = document.getElementById("counter");
 
-    const list = document.getElementById("hotel-list");
+  function updateCounter() {
+    const visited = hotels.filter(h => h.visited).length;
+    const notVisited = hotels.length - visited;
+    counter.textContent = `ไปแล้ว: ${visited} โรงแรม | ยังไม่ไป: ${notVisited} โรงแรม`;
+  }
 
+  function renderList() {
+    list.innerHTML = "";
     hotels.forEach((hotel, index) => {
       const label = document.createElement("label");
       const checkbox = document.createElement("input");
@@ -75,21 +62,23 @@
       checkbox.onchange = () => {
         hotels[index].visited = checkbox.checked;
         localStorage.setItem("hotelChecklist", JSON.stringify(hotels));
+        updateCounter();
       };
       label.appendChild(checkbox);
       label.appendChild(document.createTextNode(" " + hotel.name));
       list.appendChild(label);
     });
+  }
 
-    // Load saved checklist from localStorage
-    const saved = localStorage.getItem("hotelChecklist");
-    if (saved) {
-      const savedHotels = JSON.parse(saved);
-      savedHotels.forEach((h, i) => {
-        hotels[i].visited = h.visited;
-        list.children[i].querySelector("input").checked = h.visited;
-      });
-    }
-  </script>
-</body>
-</html>
+  // Load from localStorage
+  const saved = localStorage.getItem("hotelChecklist");
+  if (saved) {
+    const savedHotels = JSON.parse(saved);
+    savedHotels.forEach((h, i) => {
+      hotels[i].visited = h.visited;
+    });
+  }
+
+  renderList();
+  updateCounter();
+</script>
