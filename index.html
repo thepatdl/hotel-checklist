@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Thonburi; -webkit-text-stroke: #000000}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 12.0px Times; font-kerning: none}
+    span.s3 {font: 12.0px Thonburi; font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="th"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;title&gt;</span><span class="s1">บันทึกโรงแรมที่เคยไป</span><span class="s2">&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>max-width: 600px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>h1 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: #007BFF;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>label {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: block;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 5px 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 8px 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#result {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-top: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 1px solid #ddd;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background-color: #f9f9f9;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">  </span>&lt;h1&gt;</span><span class="s1">บันทึกโรงแรมที่เคยไป</span><span class="s2">&lt;/h1&gt;</span></p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;form id="hotelForm"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Checkbox list </span><span class="s3">จะถูกเติมจาก</span><span class="s1"> JavaScript --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/form&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button onclick="saveSelection()"&gt;</span><span class="s3">บันทึก</span><span class="s1">&lt;/button&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div id="result"&gt;&lt;/div&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const hotels = [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:1, name:"VIE Hotel Bangkok - MGallery", brand:"MGallery", location:"</span><span class="s3">ราชเทวี</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:2, name:"SO/ Bangkok", brand:"SO/", location:"</span><span class="s3">สาทร</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:3, name:"Banyan Tree Bangkok", brand:"Banyan Tree", location:"</span><span class="s3">สาทร</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:4, name:"Cassia Rama 9 Bangkok", brand:"Cassia (by Banyan Tree)", location:"</span><span class="s3">พระราม</span><span class="s1">9"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:5, name:"Sofitel Bangkok Sukhumvit", brand:"Sofitel", location:"</span><span class="s3">สุขุมวิท</span><span class="s1"> (</span><span class="s3">อโศก</span><span class="s1">)"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:6, name:"Pullman Bangkok King Power", brand:"Pullman", location:"</span><span class="s3">รางน้ำ</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:7, name:"Pullman Bangkok Hotel G", brand:"Pullman", location:"</span><span class="s3">สีลม</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:8, name:"Mövenpick BDMS Wellness Resort Bangkok", brand:"Mövenpick", location:"</span><span class="s3">วิทยุ</span><span class="s1"> / </span><span class="s3">เพลินจิต</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:9, name:"Mövenpick Hotel Sukhumvit 15 Bangkok", brand:"Mövenpick", location:"</span><span class="s3">สุขุมวิท</span><span class="s1"> 15"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:10, name:"Swissôtel Bangkok Ratchada", brand:"Swissôtel", location:"</span><span class="s3">รัชดาภิเษก</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:11, name:"Grand Mercure Bangkok Asoke Residence", brand:"Grand Mercure", location:"</span><span class="s3">อโศก</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:12, name:"Grand Mercure Bangkok Atrium", brand:"Grand Mercure", location:"</span><span class="s3">เพชรบุรีตัดใหม่</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:13, name:"Novotel Bangkok on Siam Square", brand:"Novotel", location:"</span><span class="s3">สยามสแควร์</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:14, name:"Novotel Bangkok Platinum Pratunam", brand:"Novotel", location:"</span><span class="s3">ประตูน้ำ</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:15, name:"Novotel Bangkok Sukhumvit 20", brand:"Novotel", location:"</span><span class="s3">สุขุมวิท</span><span class="s1"> 20"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:16, name:"Novotel Bangkok Bangna", brand:"Novotel", location:"</span><span class="s3">บางนา</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:17, name:"Novotel Bangkok Impact", brand:"Novotel", location:"</span><span class="s3">เมืองทองธานี</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:18, name:"Novotel Living Bangkok Sukhumvit Legacy", brand:"Novotel", location:"</span><span class="s3">สุขุมวิท</span><span class="s1"> 29"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:19, name:"Novotel Bangkok Sukhumvit 4", brand:"Novotel", location:"</span><span class="s3">สุขุมวิท</span><span class="s1"> 4"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:20, name:"Novotel Bangkok Future Park Rangsit", brand:"Novotel", location:"</span><span class="s3">รังสิต</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:21, name:"Mercure Bangkok Siam", brand:"Mercure", location:"</span><span class="s3">สยาม</span><span class="s1"> / </span><span class="s3">สนามกีฬาแห่งชาติ</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:22, name:"Mercure Bangkok Makkasan", brand:"Mercure", location:"</span><span class="s3">มักกะสัน</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:23, name:"Mercure Bangkok Sukhumvit 11", brand:"Mercure", location:"</span><span class="s3">สุขุมวิท</span><span class="s1"> 11"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:24, name:"Mercure Bangkok Sukhumvit 24", brand:"Mercure", location:"</span><span class="s3">สุขุมวิท</span><span class="s1"> 24"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:25, name:"Mercure Bangkok Surawong", brand:"Mercure", location:"</span><span class="s3">สุรวงศ์</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:26, name:"ibis Bangkok Siam", brand:"ibis", location:"</span><span class="s3">สยาม</span><span class="s1"> / </span><span class="s3">สนามกีฬาแห่งชาติ</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:27, name:"ibis Bangkok Sukhumvit 4", brand:"ibis", location:"</span><span class="s3">สุขุมวิท</span><span class="s1"> 4"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:28, name:"ibis Bangkok Sukhumvit 24", brand:"ibis", location:"</span><span class="s3">สุขุมวิท</span><span class="s1"> 24"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:29, name:"ibis Bangkok Sathorn", brand:"ibis", location:"</span><span class="s3">สาทร</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:30, name:"ibis Bangkok Riverside", brand:"ibis", location:"</span><span class="s3">เจริญนคร</span><span class="s1"> / </span><span class="s3">ริมแม่น้ำ</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:31, name:"ibis Styles Bangkok Ratchada", brand:"ibis Styles", location:"</span><span class="s3">รัชดาภิเษก</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:32, name:"ibis Styles Bangkok Silom", brand:"ibis Styles", location:"</span><span class="s3">สีลม</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:33, name:"ibis Styles Bangkok Sukhumvit 4", brand:"ibis Styles", location:"</span><span class="s3">สุขุมวิท</span><span class="s1"> 4"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:34, name:"ibis Styles Bangkok Sukhumvit Phra Khanong", brand:"ibis Styles", location:"</span><span class="s3">พระโขนง</span><span class="s1">"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:35, name:"ibis Styles Bangkok Sukhumvit 50", brand:"ibis Styles", location:"</span><span class="s3">สุขุมวิท</span><span class="s1"> 50"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:36, name:"TRIBE Living Bangkok Sukhumvit 39", brand:"TRIBE (by Ennismore/Accor)", location:"</span><span class="s3">สุขุมวิท</span><span class="s1"> 39"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{no:37, name:"Homm Sukhumvit34 Bangkok", brand:"Homm Cassia (by Banyan Tree)", location:"</span><span class="s3">สุขุมวิท</span><span class="s1"> 34"}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>];</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const form = document.getElementById('hotelForm');</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s3">สร้าง</span><span class="s1"> checkbox list</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>hotels.forEach(hotel =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const label = document.createElement('label');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>label.innerHTML = `&lt;input type="checkbox" name="hotel" value="${hotel.no}"&gt; ${hotel.name} (${hotel.location})`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>form.appendChild(label);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function saveSelection() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const checked = Array.from(document.querySelectorAll('input[name="hotel"]:checked'));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (checked.length === 0) {</span></p>
+<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span>alert('</span><span class="s1">กรุณาเลือกโรงแรมที่เคยไปอย่างน้อยหนึ่งแห่ง</span><span class="s2">');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const selectedHotels = checked.map(cb =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const hotel = hotels.find(h =&gt; h.no == cb.value);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return `${hotel.name} (${hotel.location})`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById('result').innerHTML = `&lt;strong&gt;</span><span class="s3">โรงแรมที่เคยไป</span><span class="s1">:&lt;/strong&gt;&lt;br&gt;` + selectedHotels.join('&lt;br&gt;');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+<p class="p3"><span class="s1"></span><br></p>
+</body>
+</html>
