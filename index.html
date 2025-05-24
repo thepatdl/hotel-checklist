@@ -1,135 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hotel We've Been</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 2rem;
-      background: #f9fbfd;
-      color: #333;
-    }
-    h1 {
-      color: #1e3a8a;
-    }
-    h2 {
-      margin-top: 2rem;
-      color: #2563eb;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 0.25rem;
-    }
-    label {
-      display: block;
-      margin-left: 1rem;
-      margin-bottom: 0.4rem;
-      cursor: pointer;
-    }
-    #counter {
-      font-weight: bold;
-      margin: 1rem 0;
-    }
-  </style>
-</head>
-<body>
-  <h1>Hotel We've been 🏨</h1>
-  <div id="counter"></div>
-  <div id="hotel-list"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel We've been</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+        background: #f0f4ff;
+        color: #333;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      .counter {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .brand {
+        margin-top: 2rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 0.25rem;
+      }
+      label {
+        display: block;
+        margin: 0.5rem 0;
+      }
+      input[type="checkbox"] {
+        margin-right: 0.5rem;
+      }
+      a {
+        text-decoration: none;
+        color: #1a73e8;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hotel We've been</h1>
+    <div class="counter" id="counter"></div>
+    <div id="list"></div>
 
-  <script>
-    const hotels = [
-      { name: "VIE Hotel Bangkok - MGallery", brand: "MGallery", visited: false },
-      { name: "SO/ Bangkok", brand: "SO/", visited: true },
-      { name: "Banyan Tree Bangkok", brand: "Banyan Tree", visited: false },
-      { name: "Cassia Rama 9 Bangkok", brand: "Cassia (by Banyan Tree)", visited: false },
-      { name: "Sofitel Bangkok Sukhumvit", brand: "Sofitel", visited: false },
-      { name: "Pullman Bangkok King Power", brand: "Pullman", visited: false },
-      { name: "Pullman Bangkok Hotel G", brand: "Pullman", visited: true },
-      { name: "Mövenpick BDMS Wellness Resort Bangkok", brand: "Mövenpick", visited: true },
-      { name: "Mövenpick Hotel Sukhumvit 15 Bangkok", brand: "Mövenpick", visited: true },
-      { name: "Swissôtel Bangkok Ratchada", brand: "Swissôtel", visited: false },
-      { name: "Grand Mercure Bangkok Asoke Residence", brand: "Grand Mercure", visited: false },
-      { name: "Grand Mercure Bangkok Atrium", brand: "Grand Mercure", visited: true },
-      { name: "Novotel Bangkok on Siam Square", brand: "Novotel", visited: false },
-      { name: "Novotel Bangkok Platinum Pratunam", brand: "Novotel", visited: false },
-      { name: "Novotel Bangkok Sukhumvit 20", brand: "Novotel", visited: false },
-      { name: "Novotel Bangkok Bangna", brand: "Novotel", visited: false },
-      { name: "Novotel Bangkok Impact", brand: "Novotel", visited: false },
-      { name: "Novotel Living Bangkok Sukhumvit Legacy", brand: "Novotel", visited: true },
-      { name: "Novotel Bangkok Sukhumvit 4", brand: "Novotel", visited: false },
-      { name: "Novotel Bangkok Future Park Rangsit", brand: "Novotel", visited: false },
-      { name: "Mercure Bangkok Siam", brand: "Mercure", visited: false },
-      { name: "Mercure Bangkok Makkasan", brand: "Mercure", visited: false },
-      { name: "Mercure Bangkok Sukhumvit 11", brand: "Mercure", visited: false },
-      { name: "Mercure Bangkok Sukhumvit 24", brand: "Mercure", visited: false },
-      { name: "Mercure Bangkok Surawong", brand: "Mercure", visited: false },
-      { name: "ibis Bangkok Siam", brand: "ibis", visited: false },
-      { name: "ibis Bangkok Sukhumvit 4", brand: "ibis", visited: false },
-      { name: "ibis Bangkok Sukhumvit 24", brand: "ibis", visited: false },
-      { name: "ibis Bangkok Sathorn", brand: "ibis", visited: false },
-      { name: "ibis Bangkok Riverside", brand: "ibis", visited: true },
-      { name: "ibis Styles Bangkok Ratchada", brand: "ibis Styles", visited: false },
-      { name: "ibis Styles Bangkok Silom", brand: "ibis Styles", visited: false },
-      { name: "ibis Styles Bangkok Sukhumvit 4", brand: "ibis Styles", visited: false },
-      { name: "ibis Styles Bangkok Sukhumvit Phra Khanong", brand: "ibis Styles", visited: false },
-      { name: "ibis Styles Bangkok Sukhumvit 50", brand: "ibis Styles", visited: false },
-      { name: "TRIBE Living Bangkok Sukhumvit 39", brand: "TRIBE (by Ennismore/Accor)", visited: true },
-      { name: "Homm Sukhumvit34 Bangkok", brand: "Homm Cassia (by Banyan Tree)", visited: true },
-    ];
-
-    const list = document.getElementById("hotel-list");
-    const counter = document.getElementById("counter");
-
-    function updateCounter() {
-      const visited = hotels.filter(h => h.visited).length;
-      const notVisited = hotels.length - visited;
-      counter.textContent = `ไปแล้ว: ${visited} โรงแรม | ยังไม่ไป: ${notVisited} โรงแรม`;
-    }
-
-    function renderList() {
-      list.innerHTML = "";
+    <script>
+      const hotels = [
+        { name: "VIE Hotel Bangkok - MGallery", brand: "MGallery", visited: false, mapQuery: "VIE Hotel Bangkok - MGallery" },
+        { name: "SO/ Bangkok", brand: "SO/", visited: true, mapQuery: "SO/ Bangkok" },
+        { name: "Banyan Tree Bangkok", brand: "Banyan Tree", visited: false, mapQuery: "Banyan Tree Bangkok" },
+        { name: "Cassia Rama 9 Bangkok", brand: "Cassia (by Banyan Tree)", visited: false, mapQuery: "Cassia Rama 9 Bangkok" },
+        { name: "Sofitel Bangkok Sukhumvit", brand: "Sofitel", visited: false, mapQuery: "Sofitel Bangkok Sukhumvit" },
+        { name: "Pullman Bangkok King Power", brand: "Pullman", visited: false, mapQuery: "Pullman Bangkok King Power" },
+        { name: "Pullman Bangkok Hotel G", brand: "Pullman", visited: true, mapQuery: "Pullman Bangkok Hotel G" },
+        { name: "Mövenpick BDMS Wellness Resort Bangkok", brand: "Mövenpick", visited: true, mapQuery: "Mövenpick BDMS Wellness Resort Bangkok" },
+        { name: "Mövenpick Hotel Sukhumvit 15 Bangkok", brand: "Mövenpick", visited: true, mapQuery: "Mövenpick Hotel Sukhumvit 15 Bangkok" },
+        { name: "Swissôtel Bangkok Ratchada", brand: "Swissôtel", visited: false, mapQuery: "Swissôtel Bangkok Ratchada" },
+        { name: "Grand Mercure Bangkok Asoke Residence", brand: "Grand Mercure", visited: false, mapQuery: "Grand Mercure Bangkok Asoke Residence" },
+        { name: "Grand Mercure Bangkok Atrium", brand: "Grand Mercure", visited: true, mapQuery: "Grand Mercure Bangkok Atrium" },
+        { name: "Novotel Bangkok on Siam Square", brand: "Novotel", visited: false, mapQuery: "Novotel Bangkok on Siam Square" },
+        { name: "Novotel Bangkok Platinum Pratunam", brand: "Novotel", visited: false, mapQuery: "Novotel Bangkok Platinum Pratunam" },
+        { name: "Novotel Bangkok Sukhumvit 20", brand: "Novotel", visited: false, mapQuery: "Novotel Bangkok Sukhumvit 20" },
+        { name: "Novotel Bangkok Bangna", brand: "Novotel", visited: false, mapQuery: "Novotel Bangkok Bangna" },
+        { name: "Novotel Bangkok Impact", brand: "Novotel", visited: false, mapQuery: "Novotel Bangkok Impact" },
+        { name: "Novotel Living Bangkok Sukhumvit Legacy", brand: "Novotel", visited: true, mapQuery: "Novotel Living Bangkok Sukhumvit Legacy" },
+        { name: "Novotel Bangkok Sukhumvit 4", brand: "Novotel", visited: false, mapQuery: "Novotel Bangkok Sukhumvit 4" },
+        { name: "Novotel Bangkok Future Park Rangsit", brand: "Novotel", visited: false, mapQuery: "Novotel Bangkok Future Park Rangsit" },
+        { name: "Mercure Bangkok Siam", brand: "Mercure", visited: false, mapQuery: "Mercure Bangkok Siam" },
+        { name: "Mercure Bangkok Makkasan", brand: "Mercure", visited: false, mapQuery: "Mercure Bangkok Makkasan" },
+        { name: "Mercure Bangkok Sukhumvit 11", brand: "Mercure", visited: false, mapQuery: "Mercure Bangkok Sukhumvit 11" },
+        { name: "Mercure Bangkok Sukhumvit 24", brand: "Mercure", visited: false, mapQuery: "Mercure Bangkok Sukhumvit 24" },
+        { name: "Mercure Bangkok Surawong", brand: "Mercure", visited: false, mapQuery: "Mercure Bangkok Surawong" },
+        { name: "ibis Bangkok Siam", brand: "ibis", visited: false, mapQuery: "ibis Bangkok Siam" },
+        { name: "ibis Bangkok Sukhumvit 4", brand: "ibis", visited: false, mapQuery: "ibis Bangkok Sukhumvit 4" },
+        { name: "ibis Bangkok Sukhumvit 24", brand: "ibis", visited: false, mapQuery: "ibis Bangkok Sukhumvit 24" },
+        { name: "ibis Bangkok Sathorn", brand: "ibis", visited: false, mapQuery: "ibis Bangkok Sathorn" },
+        { name: "ibis Bangkok Riverside", brand: "ibis", visited: true, mapQuery: "ibis Bangkok Riverside" },
+        { name: "ibis Styles Bangkok Ratchada", brand: "ibis Styles", visited: false, mapQuery: "ibis Styles Bangkok Ratchada" },
+        { name: "ibis Styles Bangkok Silom", brand: "ibis Styles", visited: false, mapQuery: "ibis Styles Bangkok Silom" },
+        { name: "ibis Styles Bangkok Sukhumvit 4", brand: "ibis Styles", visited: false, mapQuery: "ibis Styles Bangkok Sukhumvit 4" },
+        { name: "ibis Styles Bangkok Sukhumvit Phra Khanong", brand: "ibis Styles", visited: false, mapQuery: "ibis Styles Bangkok Sukhumvit Phra Khanong" },
+        { name: "ibis Styles Bangkok Sukhumvit 50", brand: "ibis Styles", visited: false, mapQuery: "ibis Styles Bangkok Sukhumvit 50" },
+        { name: "TRIBE Living Bangkok Sukhumvit 39", brand: "TRIBE (by Ennismore/Accor)", visited: true, mapQuery: "TRIBE Living Bangkok Sukhumvit 39" },
+        { name: "Homm Sukhumvit34 Bangkok", brand: "Homm Cassia (by Banyan Tree)", visited: true, mapQuery: "Homm Sukhumvit34 Bangkok" },
+      ];
 
       const grouped = {};
-      hotels.forEach(hotel => {
-        if (!grouped[hotel.brand]) {
-          grouped[hotel.brand] = [];
-        }
+      hotels.forEach((hotel) => {
+        if (!grouped[hotel.brand]) grouped[hotel.brand] = [];
         grouped[hotel.brand].push(hotel);
       });
 
-      for (const brand of Object.keys(grouped).sort()) {
-        const sectionTitle = document.createElement("h2");
-        sectionTitle.textContent = brand;
-        list.appendChild(sectionTitle);
+      const list = document.getElementById("list");
 
-        grouped[brand].forEach((hotel, index) => {
-          const label = document.createElement("label");
-          const checkbox = document.createElement("input");
-          checkbox.type = "checkbox";
-          checkbox.checked = hotel.visited;
-          checkbox.onchange = () => {
-            hotel.visited = checkbox.checked;
-            localStorage.setItem("hotelChecklist", JSON.stringify(hotels));
-            updateCounter();
-          };
-          label.appendChild(checkbox);
-          label.appendChild(document.createTextNode(" " + hotel.name));
-          list.appendChild(label);
-        });
+      function updateCounter() {
+        const total = hotels.length;
+        const visited = hotels.filter((h) => h.visited).length;
+        document.getElementById("counter").textContent = `Visited ${visited} / ${total} hotels`;
       }
-    }
 
-    const saved = localStorage.getItem("hotelChecklist");
-    if (saved) {
-      const savedHotels = JSON.parse(saved);
-      savedHotels.forEach((h, i) => {
-        if (hotels[i]) hotels[i].visited = h.visited;
-      });
-    }
+      function renderList() {
+        list.innerHTML = "";
+        for (const brand in grouped) {
+          const brandHeader = document.createElement("div");
+          brandHeader.className = "brand";
+          brandHeader.textContent = brand;
+          list.appendChild(brandHeader);
 
-    renderList();
-    updateCounter();
-  </script>
-</body>
+          grouped[brand].forEach((hotel) => {
+            const label = document.createElement("label");
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = hotel.visited;
+            checkbox.onchange = () => {
+              hotel.visited = checkbox.checked;
+              localStorage.setItem("hotelChecklist", JSON.stringify(hotels));
+              updateCounter();
+            };
+            label.appendChild(checkbox);
+
+            const link = document.createElement("a");
+            link.href = `https://www.google.com/maps?q=${encodeURIComponent(hotel.mapQuery)}`;
+            link.target = "_blank";
+            link.textContent = " " + hotel.name;
+            label.appendChild(link);
+
+            list.appendChild(label);
+          });
+        }
+      }
+
+      // Load saved status
+      const saved = JSON.parse(localStorage.getItem("hotelChecklist"));
+      if (saved) {
+        hotels.forEach((hotel, i) => hotel.visited = saved[i]?.visited || false);
+      }
+
+      renderList();
+      updateCounter();
+    </script>
+  </body>
 </html>
